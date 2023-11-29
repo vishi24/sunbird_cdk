@@ -7,6 +7,8 @@ import { Stack, StackProps } from "aws-cdk-lib";
 import * as iam from "aws-cdk-lib/aws-iam";
 import * as ssm from "aws-cdk-lib/aws-ssm";
 
+// Cleanup this file including comments, undefined variables and imports - Moz
+
 import {
   GatewayVpcEndpointAwsService,
   Vpc,

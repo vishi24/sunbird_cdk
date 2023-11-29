@@ -14,6 +14,8 @@ import * as eksconnect from "aws-cdk-lib/aws-eks";
 import * as ssm from "aws-cdk-lib/aws-ssm";
 import * as cfn from "aws-cdk-lib/aws-cloudformation";
 
+// Cleanup this file including comments, undefined variables and imports - Moz
+
 import {
   GatewayVpcEndpointAwsService,
   Vpc,
