@@ -9,6 +9,8 @@ import * as s3 from "aws-cdk-lib/aws-s3";
 import * as iam from "aws-cdk-lib/aws-iam";
 import * as childProcess from "child_process";
 
+// Cleanup this file including comments, undefined variables and imports - Moz
+
 export interface testStackProps extends cdk.StackProps {
   config: ConfigProps;
   rdssecret: string;

@@ -7,10 +7,6 @@ import { ConfigProps } from "./config";
 import { Secret } from "aws-cdk-lib/aws-secretsmanager";
 import * as s3 from "aws-cdk-lib/aws-s3";
 import * as iam from "aws-cdk-lib/aws-iam";
-// import * as childProcess from "child_process";
-// import * as secmanager from "aws-sdk/client-secrets-manager";
-import { exec } from "child_process";
-import * as AWS from "aws-sdk";
 import * as sm from "aws-cdk-lib/aws-secretsmanager";
 import { ISecret } from "aws-cdk-lib/aws-secretsmanager";
 
@@ -100,6 +96,7 @@ export class helmStack extends cdk.Stack {
           },
           secrets: {
             DB_PASSWORD: base64encodedDBpass,
+            // Convert this to env variable - Moz
             ELASTIC_SEARCH_PASSWORD: "T3BlbnNlYXJjaEAxMjMK",
             KEYCLOAK_ADMIN_CLIENT_SECRET: KEYCLOAK_ADMIN_CLIENT_SECRET,
             KEYCLOAK_ADMIN_PASSWORD: KEYCLOAK_ADMIN_PASSWORD,

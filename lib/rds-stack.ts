@@ -12,6 +12,8 @@ type AwsEnvStackProps = StackProps & {
   config: Readonly<ConfigProps>;
 };
 
+// Cleanup this file including comments, undefined variables and imports - Moz
+
 export interface RdsStackProps extends cdk.StackProps {
   config: ConfigProps;
   vpc: ec2.Vpc;
