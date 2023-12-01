@@ -20,6 +20,9 @@ export type ConfigProps = {
   KEYCLOAK_ADMIN_PASSWORD: string;
   KEYCLOAK_DEFAULT_USER_PASSWORD: string;
   MINIO_USER: string;
+  ROLE_ARN: string;
+  EKS_CLUSTER_NAME: string;
+  ELASTIC_SEARCH_PASSWORD: string;
 };
 
 export const getConfig = (): ConfigProps => ({
@@ -44,4 +47,8 @@ export const getConfig = (): ConfigProps => ({
   KEYCLOAK_DEFAULT_USER_PASSWORD:
     process.env.KEYCLOAK_DEFAULT_USER_PASSWORD || "YWRtaW5AMTIz",
   MINIO_USER: process.env.MINIO_USER || "sbrc-miniuser",
+  ROLE_ARN: process.env.ROLE_ARN || "",
+  EKS_CLUSTER_NAME: process.env.EKS_CLUSTER_NAME || "eks-sbrc-new-v3",
+  ELASTIC_SEARCH_PASSWORD:
+    process.env.ELASTIC_SEARCH_PASSWORD || "T3BlbnNlYXJjaEAxMjMK",
 });

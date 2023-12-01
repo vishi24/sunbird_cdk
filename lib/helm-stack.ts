@@ -36,6 +36,7 @@ export class helmStack extends cdk.Stack {
     const KEYCLOAK_DEFAULT_USER_PASSWORD = props.KEYCLOAK_DEFAULT_USER_PASSWORD;
     const RDS_PASSWORD = props.RDS_PASSWORD;
     const MINIO_USER = props.MINIO_USER;
+    const ELASTIC_SEARCH_PASSWORD = props.config.ELASTIC_SEARCH_PASSWORD;
 
     const secretName = sm.Secret.fromSecretAttributes(this, "ImportedSecret", {
       secretCompleteArn: rdssecretARN,
@@ -96,8 +97,7 @@ export class helmStack extends cdk.Stack {
           },
           secrets: {
             DB_PASSWORD: base64encodedDBpass,
-            // Convert this to env variable - Moz
-            ELASTIC_SEARCH_PASSWORD: "T3BlbnNlYXJjaEAxMjMK",
+            ELASTIC_SEARCH_PASSWORD: ELASTIC_SEARCH_PASSWORD,
             KEYCLOAK_ADMIN_CLIENT_SECRET: KEYCLOAK_ADMIN_CLIENT_SECRET,
             KEYCLOAK_ADMIN_PASSWORD: KEYCLOAK_ADMIN_PASSWORD,
             MINIO_SECRET_KEY: encodedSecretKey,

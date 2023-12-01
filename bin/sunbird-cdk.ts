@@ -10,7 +10,6 @@ import { ConfigProps } from "../lib/config";
 import { Stack, StackProps } from "aws-cdk-lib";
 import { s3Stack } from "../lib/s3-stack";
 import { helmStack } from "../lib/helm-stack";
-import { testStack } from "../lib/test-stack";
 
 const config = getConfig();
 
@@ -65,13 +64,4 @@ new helmStack(app, "helmStack", {
   KEYCLOAK_DEFAULT_USER_PASSWORD: config.KEYCLOAK_DEFAULT_USER_PASSWORD,
   RDS_PASSWORD: config.RDS_PASSWORD,
   MINIO_USER: config.MINIO_USER,
-});
-new testStack(app, "testStack", {
-  env: {
-    region: config.REGION,
-    account: config.ACCOUNT,
-  },
-  config: config,
-  rdssecret: rdssecret.rdsSecret,
-  rdsHost: rdssecret.rdsHost,
 });
