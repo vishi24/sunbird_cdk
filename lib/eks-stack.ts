@@ -1,9 +1,9 @@
 import * as cdk from "aws-cdk-lib";
-import { Construct } from "constructs";
 import * as ec2 from "aws-cdk-lib/aws-ec2";
 import * as eks from "aws-cdk-lib/aws-eks";
-import { ConfigProps } from "./config";
 import * as iam from "aws-cdk-lib/aws-iam";
+import { Construct } from "constructs";
+import { ConfigProps } from "./config";
 
 export interface EksStackProps extends cdk.StackProps {
   config: ConfigProps;

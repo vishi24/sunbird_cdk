@@ -1,15 +1,13 @@
 import * as cdk from "aws-cdk-lib";
-import { Construct } from "constructs";
+import { StackProps } from "aws-cdk-lib";
 import * as s3 from "aws-cdk-lib/aws-s3";
+import { Construct } from "constructs";
 import { ConfigProps } from "./config";
-import { Stack, StackProps } from "aws-cdk-lib";
 
 type AwsEnvStackProps = StackProps & {
   config: Readonly<ConfigProps>;
 };
-export interface bucketStackProps extends cdk.StackProps {
-  config: ConfigProps;
-}
+
 export class s3Stack extends cdk.Stack {
   public readonly s3bucket: s3.Bucket;
 

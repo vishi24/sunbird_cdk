@@ -1,14 +1,13 @@
 import * as cdk from "aws-cdk-lib";
-import * as helm from "aws-cdk-lib/aws-eks";
-import { Construct } from "constructs";
-import * as eks from "aws-cdk-lib/aws-eks";
 import * as ec2 from "aws-cdk-lib/aws-ec2";
-import { ConfigProps } from "./config";
-import { Secret } from "aws-cdk-lib/aws-secretsmanager";
-import * as s3 from "aws-cdk-lib/aws-s3";
+import * as eks from "aws-cdk-lib/aws-eks";
+import * as helm from "aws-cdk-lib/aws-eks";
 import * as iam from "aws-cdk-lib/aws-iam";
+import * as s3 from "aws-cdk-lib/aws-s3";
 import * as sm from "aws-cdk-lib/aws-secretsmanager";
-import { ISecret } from "aws-cdk-lib/aws-secretsmanager";
+import { ISecret, Secret } from "aws-cdk-lib/aws-secretsmanager";
+import { Construct } from "constructs";
+import { ConfigProps } from "./config";
 
 export interface helmStackProps extends cdk.StackProps {
   config: ConfigProps;

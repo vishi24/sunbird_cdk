@@ -1,15 +1,12 @@
 #!/usr/bin/env node
 import * as cdk from "aws-cdk-lib";
-import "source-map-support/register";
-import { sbrcStack } from "../lib/sbrc-stack";
-import { vpcStack } from "../lib/vpc-stack";
-import { rdsStack } from "../lib/rds-stack";
+import { StackProps } from "aws-cdk-lib";
+import { ConfigProps, getConfig } from "../lib/config";
 import { eksStack } from "../lib/eks-stack";
-import { getConfig } from "../lib/config";
-import { ConfigProps } from "../lib/config";
-import { Stack, StackProps } from "aws-cdk-lib";
-import { s3Stack } from "../lib/s3-stack";
 import { helmStack } from "../lib/helm-stack";
+import { rdsStack } from "../lib/rds-stack";
+import { s3Stack } from "../lib/s3-stack";
+import { vpcStack } from "../lib/vpc-stack";
 
 const config = getConfig();
 

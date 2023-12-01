@@ -1,11 +1,10 @@
 import * as cdk from "aws-cdk-lib";
-import { Construct } from "constructs";
 import * as ec2 from "aws-cdk-lib/aws-ec2";
-import * as rds from "aws-cdk-lib/aws-rds";
 import * as kms from "aws-cdk-lib/aws-kms";
-import { ConfigProps } from "./config";
-import { Stack, StackProps } from "aws-cdk-lib";
+import * as rds from "aws-cdk-lib/aws-rds";
 import { Secret } from "aws-cdk-lib/aws-secretsmanager";
+import { Construct } from "constructs";
+import { ConfigProps } from "./config";
 
 export interface RdsStackProps extends cdk.StackProps {
   config: ConfigProps;

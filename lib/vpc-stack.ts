@@ -1,10 +1,9 @@
 import * as cdk from "aws-cdk-lib";
-import { Construct } from "constructs";
+import { StackProps } from "aws-cdk-lib";
 import * as ec2 from "aws-cdk-lib/aws-ec2";
-import { ConfigProps } from "./config";
-import { Stack, StackProps } from "aws-cdk-lib";
 import { GatewayVpcEndpointAwsService } from "aws-cdk-lib/aws-ec2";
-import { SubnetGroup } from "aws-cdk-lib/aws-rds";
+import { Construct } from "constructs";
+import { ConfigProps } from "./config";
 
 type AwsEnvStackProps = StackProps & {
   config: Readonly<ConfigProps>;
