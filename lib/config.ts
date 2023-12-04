@@ -28,7 +28,7 @@ export const getConfig = (): ConfigProps => ({
   REGION: process.env.REGION || "ap-south-1",
   ACCOUNT: process.env.ACCOUNT || "",
   CIDR: process.env.CIDR || "10.70.0.0/16",
-  RDS_SEC_GRP_INGRESS: process.env.RDS_SEC_GRP_INGRESS || "10.70.0.0/16",
+  RDS_SEC_GRP_INGRESS: process.env.CIDR,
   MAX_AZS: 2,
   BUCKET_NAME: process.env.BUCKET_NAME || "",
   CHART: "sunbird-rc",
