@@ -15,6 +15,7 @@ export type ConfigProps = {
   RELEASE: string;
   RDS_USER: string;
   RDS_PASSWORD: string;
+  RDS_SEC_GRP_INGRESS: string;
   KEYCLOAK_ADMIN_CLIENT_SECRET: string;
   KEYCLOAK_ADMIN_PASSWORD: string;
   KEYCLOAK_DEFAULT_USER_PASSWORD: string;
@@ -27,7 +28,7 @@ export const getConfig = (): ConfigProps => ({
   REGION: process.env.REGION || "ap-south-1",
   ACCOUNT: process.env.ACCOUNT || "",
   CIDR: process.env.CIDR || "10.70.0.0/16",
-  RDS_SEC_GRP_INGRESS: process.env.CIDR,
+  RDS_SEC_GRP_INGRESS: process.env.CIDR || "10.70.0.0/16",
   MAX_AZS: 2,
   BUCKET_NAME: process.env.BUCKET_NAME || "",
   CHART: "sunbird-rc",
