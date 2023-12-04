@@ -22,33 +22,27 @@ export type ConfigProps = {
   MINIO_USER: string;
   ROLE_ARN: string;
   EKS_CLUSTER_NAME: string;
-  ELASTIC_SEARCH_PASSWORD: string;
 };
 
 export const getConfig = (): ConfigProps => ({
   REGION: process.env.REGION || "ap-south-1",
-  ACCOUNT: process.env.ACCOUNT || "370803901956",
+  ACCOUNT: process.env.ACCOUNT || "",
   CIDR: process.env.CIDR || "10.70.0.0/16",
   RDS_SEC_GRP_INGRESS: process.env.RDS_SEC_GRP_INGRESS || "10.70.0.0/16",
   MAX_AZS: 2,
-  BUCKET_NAME: process.env.BUCKET_NAME || "sbrc-registry-201",
-  CHART: process.env.CHART || "sunbird-rc",
-  REPOSITORY:
-    process.env.REPOSITORY || "https://amitvashist7.github.io/helm-example/",
-  NAMESPACE: process.env.NAMESPACE || "sbrc-registry",
-  RELEASE: process.env.RELEASE || "sbrc-registry",
+  BUCKET_NAME: process.env.BUCKET_NAME || "",
+  CHART: "sunbird-rc",
+  REPOSITORY: "https://amitvashist7.github.io/helm-example/",
+  NAMESPACE: "sbrc-registry",
+  RELEASE: "sbrc-registry",
   RDS_USER: process.env.RDS_USER || "postgres",
-  RDS_PASSWORD: process.env.RDS_PASSWORD || "password123",
-  KEYCLOAK_ADMIN_CLIENT_SECRET:
-    process.env.KEYCLOAK_ADMIN_CLIENT_SECRET ||
-    "YzllOTA1YTQtOWIyZi00NWU2LThlMDUtMTNjM2E5NTNmNjUx",
+  RDS_PASSWORD: process.env.RDS_PASSWORD || "",
+  KEYCLOAK_ADMIN_CLIENT_SECRET: "YzllOTA1YTQtOWIyZi00NWU2LThlMDUtMTNjM2E5NTNmNjUx",
   KEYCLOAK_ADMIN_PASSWORD:
-    process.env.KEYCLOAK_ADMIN_PASSWORD || "YWRtaW4xMjM=",
+    process.env.KEYCLOAK_ADMIN_PASSWORD || "admin@123",
   KEYCLOAK_DEFAULT_USER_PASSWORD:
-    process.env.KEYCLOAK_DEFAULT_USER_PASSWORD || "YWRtaW5AMTIz",
-  MINIO_USER: process.env.MINIO_USER || "sbrc-miniuser",
+    process.env.KEYCLOAK_DEFAULT_USER_PASSWORD || "admin@123",
+  MINIO_USER: "sbrc-minio-user",
   ROLE_ARN: process.env.ROLE_ARN || "",
-  EKS_CLUSTER_NAME: process.env.EKS_CLUSTER_NAME || "eks-sbrc-new-v3",
-  ELASTIC_SEARCH_PASSWORD:
-    process.env.ELASTIC_SEARCH_PASSWORD || "T3BlbnNlYXJjaEAxMjMK",
+  EKS_CLUSTER_NAME: process.env.EKS_CLUSTER_NAME || "sunbird-rc"
 });

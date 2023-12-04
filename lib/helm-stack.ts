@@ -35,7 +35,6 @@ export class helmStack extends cdk.Stack {
     const KEYCLOAK_DEFAULT_USER_PASSWORD = props.KEYCLOAK_DEFAULT_USER_PASSWORD;
     const RDS_PASSWORD = props.RDS_PASSWORD;
     const MINIO_USER = props.MINIO_USER;
-    const ELASTIC_SEARCH_PASSWORD = props.config.ELASTIC_SEARCH_PASSWORD;
 
     const secretName = sm.Secret.fromSecretAttributes(this, "ImportedSecret", {
       secretCompleteArn: rdssecretARN,
@@ -45,13 +44,9 @@ export class helmStack extends cdk.Stack {
     };
     const dbPass = getValueFromSecret(secretName, "password");
 
-    const appSecret = Secret.fromSecretCompleteArn(
-      this,
-      "rdssecret",
-      rdssecretARN
-    );
-    const user = appSecret.secretValueFromJson("username").toString();
     const base64encodedDBpass = cdk.Fn.base64(RDS_PASSWORD);
+    const base64encodedkeycloakAdminPassword = cdk.Fn.base64(KEYCLOAK_ADMIN_PASSWORD);
+    const base64encodedkeycloakUserPassword = cdk.Fn.base64(KEYCLOAK_DEFAULT_USER_PASSWORD);
 
     const useriam = new iam.User(this, "MyUser", {
       userName: MINIO_USER,
@@ -96,11 +91,11 @@ export class helmStack extends cdk.Stack {
           },
           secrets: {
             DB_PASSWORD: base64encodedDBpass,
-            ELASTIC_SEARCH_PASSWORD: ELASTIC_SEARCH_PASSWORD,
+            // ELASTIC_SEARCH_PASSWORD: ELASTIC_SEARCH_PASSWORD,
             KEYCLOAK_ADMIN_CLIENT_SECRET: KEYCLOAK_ADMIN_CLIENT_SECRET,
-            KEYCLOAK_ADMIN_PASSWORD: KEYCLOAK_ADMIN_PASSWORD,
+            KEYCLOAK_ADMIN_PASSWORD: base64encodedkeycloakAdminPassword,
+            KEYCLOAK_DEFAULT_USER_PASSWORD: base64encodedkeycloakUserPassword,
             MINIO_SECRET_KEY: encodedSecretKey,
-            KEYCLOAK_DEFAULT_USER_PASSWORD: KEYCLOAK_DEFAULT_USER_PASSWORD,
             access_key: encodedAccessKey,
           },
           minio: {
