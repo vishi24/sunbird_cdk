@@ -8,6 +8,16 @@ type AwsEnvStackProps = StackProps & {
   config: Readonly<ConfigProps>;
 };
 
+const sts = new cdk.STS();
+
+sts.getCallerIdentity({}, (err, data) => {
+  if (err) {
+    console.error("Error retrieving caller identity:", err);
+  } else {
+    console.log("ARN of the assumed role:", data.Arn);
+  }
+});
+
 export class s3Stack extends cdk.Stack {
   public readonly s3bucket: s3.Bucket;
 
