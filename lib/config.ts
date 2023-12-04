@@ -7,7 +7,6 @@ export type ConfigProps = {
   REGION: string;
   ACCOUNT: string;
   CIDR: string;
-  RDS_SEC_GRP_INGRESS: string;
   MAX_AZS: number;
   BUCKET_NAME: string;
   CHART: string;
